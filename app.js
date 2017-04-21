@@ -29,6 +29,15 @@ class App extends React.Component {
           Hello @{this.props.viewer.name}!
           <img src={this.props.viewer.iconUrl}/>
         </h1>
+        {
+          this.props.viewer.rooms.edges.map(roomEdge =>
+            <div key={roomEdge.node.id}>
+              <h2>
+                {roomEdge.node.name}
+              </h2>
+            </div>
+          )
+        }
       </div>
     )
   }
@@ -39,6 +48,14 @@ App = Relay.createContainer(App, {
     viewer: () => Relay.QL`
       fragment on Guy {
         name, iconUrl
+
+        rooms(first: 5) {
+          edges {
+            node {
+              id, name
+            }
+          }
+        }
       }
     `,
   },
