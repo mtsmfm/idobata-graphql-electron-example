@@ -8,7 +8,11 @@ services:
     volumes:
       - .:/app
       - /tmp/.X11-unix:/tmp/.X11-unix
+      - home:/root
     environment:
       DISPLAY: $DISPLAY
     security_opt:
       - seccomp:unconfined
+
+volumes:
+  home:
