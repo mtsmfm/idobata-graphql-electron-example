@@ -5,4 +5,6 @@ RUN apt-get update -qq && \
   libgtk2.0-0 libx11-xcb1 libxtst6 libxss1 libgconf-2-4 libnss3 libnspr4 libasound2 \
   fonts-takao
 
-CMD ["yarn", "run", "electron", "."]
+RUN yarn global add electron
+
+CMD ["electron", "."]

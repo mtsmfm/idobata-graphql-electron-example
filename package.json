@@ -3,7 +3,5 @@
   "version": "1.0.0",
   "main": "main.js",
   "license": "MIT",
-  "dependencies": {
-    "electron": "^1.6.5"
-  }
+  "dependencies": {}
 }
