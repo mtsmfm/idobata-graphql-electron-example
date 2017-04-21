@@ -27,6 +27,7 @@ class App extends React.Component {
       <div>
         <h1>
           Hello @{this.props.viewer.name}!
+          <img src={this.props.viewer.iconUrl}/>
         </h1>
       </div>
     )
@@ -37,7 +38,7 @@ App = Relay.createContainer(App, {
   fragments: {
     viewer: () => Relay.QL`
       fragment on Guy {
-        name
+        name, iconUrl
       }
     `,
   },
