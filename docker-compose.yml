@@ -1,0 +1,14 @@
+version: "3.2"
+services:
+  app:
+    build: .
+    working_dir: /app
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      DISPLAY: $DISPLAY
+    security_opt:
+      - seccomp:unconfined
