@@ -35,6 +35,16 @@ class App extends React.Component {
               <h2>
                 {roomEdge.node.name}
               </h2>
+              <ul>
+                {
+                  roomEdge.node.messages.edges.map(messageEdge =>
+                    <li key={messageEdge.node.id}>
+                      <img src={messageEdge.node.sender.iconUrl} style={{width: 20}} />
+                      {messageEdge.node.sender.name}: <div dangerouslySetInnerHTML={{__html: messageEdge.node.body}} ></div>
+                    </li>
+                  )
+                }
+              </ul>
             </div>
           )
         }
@@ -53,6 +63,18 @@ App = Relay.createContainer(App, {
           edges {
             node {
               id, name
+
+              messages(last: 10) {
+                edges {
+                  node {
+                    id, body
+
+                    sender {
+                      name, iconUrl
+                    }
+                  }
+                }
+              }
             }
           }
         }
