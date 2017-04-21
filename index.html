@@ -2,12 +2,19 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Hello idobata GraphQL API!</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <div id="root"></div>
+    <script>
+      var fs = require("fs");
+      window.onload = function() {
+        require("babel-register")({
+          plugins: [require("babel-relay-plugin")(JSON.parse(fs.readFileSync("schema.json", "utf-8")).data), "transform-class-properties"],
+          presets: ['react', 'es2015', 'es2016']
+        });
+        require("./app");
+      }
+    </script>
   </body>
 </html>

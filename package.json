@@ -3,5 +3,17 @@
   "version": "1.0.0",
   "main": "main.js",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2016": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "babel-relay-plugin": "0.10.0",
+    "graphql": "^0.9.3",
+    "graphql-relay": "^0.5.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-relay": "^0.10.0"
+  }
 }
