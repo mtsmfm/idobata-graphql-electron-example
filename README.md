@@ -26,7 +26,7 @@ If you're using macOS, you need additional setup to launch GUI application on do
 
 4. export `DISPLAY` env var
 
-    ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}') && xhost + $ip && export DISPLAY=$i
+    ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}') && xhost + $ip && export DISPLAY=$ip:0
 
 #### Linux
 
@@ -39,6 +39,7 @@ If you're using Linux and X server, additional setup is only running `xhost loca
     cp .env.example .env
     # get access token (https://idobata.io/en/api) and edit .env
     docker-compose build
+    docker-compose run app yarn install
     docker-compose run app
 
 #### macOS
@@ -51,4 +52,5 @@ To launch GUI application with docker on macOS, you need
     cd idobata-graphql-electron-example
     cp .env.example .env
     # get access token (https://idobata.io/en/api) and edit .env
+    yarn install
     electron .
